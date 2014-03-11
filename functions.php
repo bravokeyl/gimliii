@@ -42,6 +42,7 @@ function spi_setup() {
 
 add_action( 'after_setup_theme', 'spi_setup' );
 get_template_part('inc/widgets');
+//require_once(get_template_directory() .'/admin/theme-settings.php');
 
 /* Widgetize Theme */
 function spi_widgets_init() {

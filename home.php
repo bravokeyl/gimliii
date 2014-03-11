@@ -8,10 +8,11 @@
 	<div class="row blog-page margin-bottom-20">    
     	<div class="col-md-9 md-margin-bottom-40">
             <?php
+            $spi_post_class_home = " row blog blog-medium margin-bottom-40 ";
 			if ( have_posts() ) :
 				// Start the Loop.
 				while ( have_posts() ) : the_post(); ?>
-            <div class="row blog blog-medium margin-bottom-40">
+            <div id="post-<?php the_ID(); ?>" <?php post_class($spi_post_class_home); ?> >
                 <div class="col-md-5">
                     <?php if ( has_post_thumbnail() && ! post_password_required() ){ ?>
                     <a href="<?php the_permalink(); ?>"> 

@@ -75,9 +75,8 @@ class spi_posts_list extends WP_Widget {
 	<?php
 	}
 }
-?>
 
-<?php
+
 add_action( 'widgets_init', 'spi_search_widget' );
 function spi_search_widget() {
 	register_widget( 'spi_search' );
@@ -98,6 +97,3 @@ class spi_search extends WP_Widget {
 <?php
 	}
 }
-?>
-
-

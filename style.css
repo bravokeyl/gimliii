@@ -1,11 +1,11 @@
 /**
  * Theme Name:  gimliii
- * Theme URI:   
+ * Theme URI:   http://wordpress.org/themes/gimliii
  * Description: Very simple and clean green theme , supports custom header , custom background , comes with two widgets and three footer widget areas , sidebar widgets. 
- * Version:     1.0.3
+ * Version:     1.0.4.2
  * Author:      Bravo Keyl
  * Author URI:  http://cloudspier.com
- * Tags: 		green, one-column, two-columns, three-columns,custom-menu,featured-images , right-sidebar , responsive-layout , custom-header , custom-background
+ * Tags: 		green, one-column, two-columns, three-columns,custom-menu,featured-images , right-sidebar , responsive-layout , custom-background , custom-header , sticky-post
  * License:     GNU General Public License v3
  * License URI: http://www.gnu.org/licenses/gpl.html
  */
@@ -486,6 +486,13 @@ a.read-more:hover {
 .gallery-caption
 .bypostauthor
 .sticky*/
+
+.sticky {
+   border: 2px groove rgba(204, 204, 204, 0.3);
+   padding: 20px 10px;
+   border-top: 1px solid;
+   border-bottom: 1px solid;
+}
 .attachment-medium ,.alignnone,.wp-caption img {
 max-width: 100%;
 height: auto;
@@ -553,6 +560,13 @@ border-color: #f3f3f3;
 th, td {
 text-align: left;
 }
+
+/* Widgets */
+.widget ul li{
+   list-style: none;
+   padding-left: 0px;
+}
+
 /* Widget Meta Core */
 .widget_meta ul{
    list-style: none;
@@ -580,17 +594,23 @@ text-align: left;
 }
 .widget_categories ul li {
    padding-bottom: 5px;
+   list-style: none;
 }
 /* Widge_Archives */
 .widget_archive  ul{
    padding-left: 5px;
+   list-style: none;
 }
 /*Widget_Custom_Menu*/
 .widget_nav_menu ul {
    list-style: none;
    padding-left: 5px;
-}
 
+}
+.footer ul{
+   padding-left: 0px;
+   list-style: none;
+}
 a{
    color:#72c02c;
 }
@@ -756,6 +776,11 @@ ul.blog-tags a:hover i {
 	margin-top: 20px;
 	border-bottom:solid 2px rgba(206, 206, 206, 0.69);
 	position:relative;	
+}
+
+.custom-header-image{
+   max-width: 100%;
+   height: auto;
 }
 
 .navbar-toggle,
@@ -1334,6 +1359,9 @@ h2.site-title{
 }
 .spi-post-list .dl-horizontal {
 border-bottom: 1px solid rgba(204, 204, 204, 0.35);
+}
+.textwidget ul {
+padding-left: 0px;
 }
 /* search */
 #s {

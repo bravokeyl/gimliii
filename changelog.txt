@@ -9,3 +9,6 @@
 2)Background support
 3)Link blog list images & titles
 4)Check Footer Widget Activeness to display
+<==========V 1.0.4===========>
+1)Added custom-header , custom-background ,sticky-post tags to the style.css
+2)Nav-Menu check when there is no menu assigned

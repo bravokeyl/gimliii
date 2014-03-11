@@ -18,10 +18,11 @@
 
             <?php endif;
             if(get_header_image()): ?>
-            <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>"/>
+            <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" class="custom-header-image" />
         <?php endif;?>
         </div>
     </div>
+    <?php if(has_nav_menu('primary')) : ?>
     <div class="navbar navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -43,6 +44,7 @@
                ));?>              
             </div><!-- /navbar-collapse -->
         </div>    
-    </div>    
+    </div>  
+    <?php endif; ?>  
 </div><!--/header-->
    
