@@ -1,13 +1,14 @@
 /**
  * Theme Name:  gimliii
- * Theme URI:   http://wordpress.org/themes/gimliii
+ * Theme URI:   https://wordpress.org/themes/gimliii
  * Description: Very simple and clean green theme , supports custom header , custom background , comes with two widgets and three footer widget areas , sidebar widgets. 
- * Version:     1.0.4.2
+ * Version:     1.0.6.1
  * Author:      Bravo Keyl
  * Author URI:  http://cloudspier.com
- * Tags: 		green, one-column, two-columns, three-columns,custom-menu,featured-images , right-sidebar , responsive-layout , custom-background , custom-header , sticky-post
+ * Tags: 		green, one-column, two-columns, three-columns,custom-menu,featured-images , right-sidebar , responsive-layout , custom-background , custom-header , sticky-post ,translation-ready
  * License:     GNU General Public License v3
  * License URI: http://www.gnu.org/licenses/gpl.html
+ * Text Domain: gimliii
  */
 /* Gimliii WordPress Theme, Copyright 2013 WordPress.org
 Gimliii is distributed under the terms of the GNU GPL*/
@@ -562,6 +563,9 @@ text-align: left;
 }
 
 /* Widgets */
+.widget ul{
+   padding-left: 5px;
+}
 .widget ul li{
    list-style: none;
    padding-left: 0px;
@@ -1118,7 +1122,7 @@ font-size: 21px;
 .children{
    list-style: none;
 }
-.spi-date-reply {
+.gimliii-date-reply {
 display: inline;
 float: right;
 }
@@ -1353,12 +1357,19 @@ h2.site-title{
 }
 
 /* Widgets */
-.spi-post-list{
+.gimliii-post-list{
    list-style: none;
    padding-left: 0px;
 }
-.spi-post-list .dl-horizontal {
+.gimliii-post-list .dl-horizontal {
 border-bottom: 1px solid rgba(204, 204, 204, 0.35);
+}
+
+.gimliii-post-list .dl-horizontal dt {
+width: 60px;
+}
+ .gimliii-post-list .dl-horizontal dd {
+margin-left: 70px;
 }
 .textwidget ul {
 padding-left: 0px;

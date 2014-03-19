@@ -12,3 +12,5 @@
 <==========V 1.0.4===========>
 1)Added custom-header , custom-background ,sticky-post tags to the style.css
 2)Nav-Menu check when there is no menu assigned
+<==========V 1.0.5===========>
+1)Added POT file for easy translations

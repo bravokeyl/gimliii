@@ -1,14 +1,14 @@
 <?php
-add_action( 'widgets_init', 'spi_posts_list_widget' );
-function spi_posts_list_widget() {
-	register_widget( 'spi_posts_list' );
+add_action( 'widgets_init', 'gimliii_posts_list_widget' );
+function gimliii_posts_list_widget() {
+	register_widget( 'gimliii_posts_list' );
 }
-class spi_posts_list extends WP_Widget {
+class gimliii_posts_list extends WP_Widget {
 
-	function spi_posts_list() {
+	function gimliii_posts_list() {
 		$widget_ops = array( 'classname' => 'posts-list'  );
 		$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'posts-list-widget' );
-		$this->WP_Widget( 'posts-list-widget','Spi Posts list', $widget_ops, $control_ops );
+		$this->WP_Widget( 'posts-list-widget','Gimliii Posts list', $widget_ops, $control_ops );
 	}
 	
 	function widget( $args, $instance ) {
@@ -23,16 +23,16 @@ class spi_posts_list extends WP_Widget {
 			echo $before_title;
 			echo $title ; ?>
 		<?php echo $after_title; ?>
-				<ul class="spi-post-list">
+				<ul class="gimliii-post-list">
 					<?php
 					if( $posts_order == 'popular' )
-						spi_popular_posts($no_of_posts , $thumb);
+						gimliii_popular_posts($no_of_posts , $thumb);
 						
 					elseif( $posts_order == 'random' )
-						spi_random_posts($no_of_posts , $thumb);
+						gimliii_random_posts($no_of_posts , $thumb);
 						
 					else
-						spi_last_posts($no_of_posts , $thumb)?>	
+						gimliii_last_posts($no_of_posts , $thumb)?>	
 				</ul>
 	<?php 
 		echo $after_widget;
@@ -48,7 +48,7 @@ class spi_posts_list extends WP_Widget {
 	}
 
 	function form( $instance ) {
-		$defaults = array( 'title' =>__('Recent Posts' , 'spi') , 'no_of_posts' => '5' , 'posts_order' => 'latest', 'thumb' => 'true' );
+		$defaults = array( 'title' =>__('Recent Posts' , 'gimliii') , 'no_of_posts' => '5' , 'posts_order' => 'latest', 'thumb' => 'true' );
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 
 		<p>
@@ -77,18 +77,18 @@ class spi_posts_list extends WP_Widget {
 }
 
 
-add_action( 'widgets_init', 'spi_search_widget' );
-function spi_search_widget() {
-	register_widget( 'spi_search' );
+add_action( 'widgets_init', 'gimliii_search_widget' );
+function gimliii_search_widget() {
+	register_widget( 'gimliii_search' );
 }
-class spi_search extends WP_Widget {
-	function spi_search() {
+class gimliii_search extends WP_Widget {
+	function gimliii_search() {
 		$widget_ops = array( 'classname' => 'search'  );
 		$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'search-widget' );
-		$this->WP_Widget( 'search-widget',' Spi Search', $widget_ops, $control_ops );
+		$this->WP_Widget( 'search-widget',' Gimliii Search', $widget_ops, $control_ops );
 	}
 	function widget( $args, $instance ) { ?>
-	<div class="lb lb-md"><h2><?php _e('Search','spi');?></h2></div> 
+	<div class="lb lb-md"><h2><?php _e('Search','gimliii');?></h2></div> 
 	<div class="input-group margin-bottom-40">
 		<form method="get" id="searchform" action="<?php echo home_url() ; ?>/">
 			<input type="text" id="s" name="s" class="form-control" placeholder="Search"  />

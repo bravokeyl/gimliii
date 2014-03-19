@@ -18,7 +18,7 @@
             <div class="blog margin-bottom-40"> 
                 <div class="blog-body">
                 <?php the_content(); ?>
-                <p><?php wp_link_pages( array( 'before' => __( 'Pages:', 'spi' ), 'after' => '') ); ?></p>
+                <p><?php wp_link_pages( array( 'before' => __( 'Pages:', 'gimliii' ), 'after' => '') ); ?></p>
                </div>
                  </div>       
 			<?php endif;?>

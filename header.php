@@ -27,7 +27,7 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                    <span class="sr-only"><?php _e('Toggle navigation','spi');?></span>
+                    <span class="sr-only"><?php _e('Toggle navigation','gimliii');?></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>

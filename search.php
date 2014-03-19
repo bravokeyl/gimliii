@@ -4,9 +4,9 @@
     <div class="container">
     	   <h3> <?php	
 			if ( have_posts() ) :
-				printf( __( 'Search Results for: %s', 'spi' ), '<span>' . get_search_query() . '</span>' ); ?>
+				printf( __( 'Search Results for: %s', 'gimliii' ), '<span>' . get_search_query() . '</span>' ); ?>
 				<?php else : ?>
-				<?php _e( 'Nothing Found', 'spi' ); ?>
+				<?php _e( 'Nothing Found', 'gimliii' ); ?>
 				<?php endif; ?>	</h3>
     </div>
 </div><!--/breadcrumbs-->
@@ -37,10 +37,10 @@
                 <div class="col-md-7">
                     <h2><?php the_title(); ?></h2>
                     <ul class="list-unstyled list-inline blog-info">
-                        <li><i class="icon-calendar"></i> <?php spi_posted_on();?></li>
+                        <li><i class="icon-calendar"></i> <?php gimliii_posted_on();?></li>
                         <?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
                         <li><i class="icon-comments"></i> 
-                        <?php comments_popup_link( __( 'Comment', 'spi' ), __( '1 comment', 'spi' ), __( '% Comments', 'spi' ) ); ?>
+                        <?php comments_popup_link( __( 'Comment', 'gimliii' ), __( '1 comment', 'gimliii' ), __( '% Comments', 'gimliii' ) ); ?>
                     	</li><?php endif;?>
                     	<li><i class="icon-copy"></i> 
                     		<?php
@@ -62,9 +62,9 @@
 
             <hr class="margin-bottom-40">
             	<?php endwhile;
-				spi_paging_nav();
+				gimliii_paging_nav();
 				else:?>
-					<div class="alert alert-danger fade in"><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'spi' ); ?></div>
+					<div class="alert alert-danger fade in"><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'gimliii' ); ?></div>
 			<?php endif;
 		?>
         </div>

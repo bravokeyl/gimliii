@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div class="breadcrumbs margin-bottom-40">
     <div class="container">
-        <h1 class="pull-left"><?php if(is_category()){ printf( __( 'Post under category : %s', 'spi' ), single_cat_title( '', false ) ); }elseif(is_tag()){ printf( __( 'Posts tagged in : %s', 'spi' ), single_tag_title( '', false ) ); } else{ echo 'Archives: ';}?></h1>
+        <h1 class="pull-left"><?php if(is_category()){ printf( __( 'Posts under category : %s', 'gimliii' ), single_cat_title( '', false ) ); }elseif(is_tag()){ printf( __( 'Posts tagged in : %s', 'gimliii' ), single_tag_title( '', false ) ); } else{ echo 'Archives: ';}?></h1>
     </div>
 </div>
 
@@ -26,10 +26,10 @@
                 <div class="col-md-7">
                     <h2><?php the_title(); ?></h2>
                     <ul class="list-unstyled list-inline blog-info">
-                        <li><i class="icon-calendar"></i> <?php spi_posted_on();?></li>
+                        <li><i class="icon-calendar"></i> <?php gimliii_posted_on();?></li>
                         <?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
                         <li><i class="icon-comments"></i> 
-                        <?php comments_popup_link( __( 'Comment', 'spi' ), __( '1 comment', 'spi' ), __( '% Comments', 'spi' ) ); ?>
+                        <?php comments_popup_link( __( 'Comment', 'gimliii' ), __( '1 comment', 'gimliii' ), __( '% Comments', 'gimliii' ) ); ?>
                     	</li><?php endif;?>
                     	<li><i class="icon-copy"></i> 
                     		<?php
@@ -50,7 +50,7 @@
 
             <hr class="margin-bottom-40">
             	<?php endwhile;
-				spi_paging_nav();
+				gimliii_paging_nav();
 			endif;
 		?>
         </div>

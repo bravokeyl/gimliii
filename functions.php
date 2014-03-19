@@ -3,7 +3,9 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 750;
 }
 
-function spi_setup() {
+function gimliii_setup() {
+
+	load_theme_textdomain( 'gimliii', get_template_directory() . '/languages' );
 
 	add_theme_support( 'automatic-feed-links' );
 
@@ -12,7 +14,7 @@ function spi_setup() {
 		add_image_size( 'thumb-small', 60, 60, true );
 		add_image_size( 'thumb-medium', 336, 212, true );
    // Add theme support for Custom Header
-	$spi_header_args = array(
+	$gimliii_header_args = array(
 			'default-image'          => '',
 			'random-default'         => false,
 			'width'                  => 1175,
@@ -24,14 +26,14 @@ function spi_setup() {
 			'uploads'                => true,
 
 	);
-	add_theme_support( 'custom-header', $spi_header_args );
+	add_theme_support( 'custom-header', $gimliii_header_args );
 
 	add_theme_support( "custom-background");
 	
 	add_editor_style();
 
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'spi' )
+		'primary' => __( 'Primary Menu', 'gimliii' )
 	) );
 
 	add_theme_support( 'html5', array(
@@ -40,16 +42,16 @@ function spi_setup() {
 
 }
 
-add_action( 'after_setup_theme', 'spi_setup' );
+add_action( 'after_setup_theme', 'gimliii_setup' );
 get_template_part('inc/widgets');
 //require_once(get_template_directory() .'/admin/theme-settings.php');
 
 /* Widgetize Theme */
-function spi_widgets_init() {
+function gimliii_widgets_init() {
 
 		register_sidebar(array(
 		'name' => ' Right Sidebar',
-		'id' => 'spi-right-sidebar',
+		'id' => 'gimliii-right-sidebar',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<div class="lb lb-md"><h2>',
@@ -58,7 +60,7 @@ function spi_widgets_init() {
 
 	register_sidebar(array(
 		'name' => 'Footer One',
-		'id' => 'spi-footer-one',
+		'id' => 'gimliii-footer-one',
 		'before_widget' => '<div id="%1$s" class="footer-widget-col %2$s">',
 		'after_widget' => '<div style="clear:both;"></div></div>',
 		'before_title' => '<div class="lb"><h2>',
@@ -67,7 +69,7 @@ function spi_widgets_init() {
 
 	register_sidebar(array(
 		'name' => 'Footer Two',
-		'id' => 'spi-footer-two',
+		'id' => 'gimliii-footer-two',
 		'before_widget' => '',
 		'after_widget' => '',
 		'before_title' => '<div class="lb"><h2>',
@@ -76,7 +78,7 @@ function spi_widgets_init() {
 
 	register_sidebar(array(
 		'name' => 'Footer Three',
-		'id' => 'spi-footer-three',
+		'id' => 'gimliii-footer-three',
 		'before_widget' => '',
 		'after_widget' => '',
 		'before_title' => '<div class="lb"><h2>',
@@ -84,9 +86,9 @@ function spi_widgets_init() {
 	));
 
 }
-add_action( 'widgets_init', 'spi_widgets_init' );
+add_action( 'widgets_init', 'gimliii_widgets_init' );
 
-function spi_filter_wp_title( $title, $separator ) { 
+function gimliii_filter_wp_title( $title, $separator ) { 
 	if ( is_feed() )
 		return $title;
 	global $paged, $page;
@@ -111,20 +113,20 @@ function spi_filter_wp_title( $title, $separator ) {
 
 	return $title;
 }
-add_filter( 'wp_title', 'spi_filter_wp_title', 10, 2 );
+add_filter( 'wp_title', 'gimliii_filter_wp_title', 10, 2 );
 
 if(!is_admin()){
 
-function spi_styles(){
+function gimliii_styles(){
 
 	wp_enqueue_style( 'bootcss', get_template_directory_uri().'/js/bootstrap/css/bootstrap.min.css', array() );
-	wp_enqueue_style( 'spi-style', get_stylesheet_uri(), array( 'bootcss' ) );	
+	wp_enqueue_style( 'gimliii-style', get_stylesheet_uri(), array( 'bootcss' ) );	
 	wp_enqueue_style( 'fontawesome', get_template_directory_uri().'/vendor/font-awesome/css/font-awesome.css', array() );  
 
 }
-add_action( 'wp_enqueue_scripts', 'spi_styles' );
+add_action( 'wp_enqueue_scripts', 'gimliii_styles' );
 
-function spi_scripts(){
+function gimliii_scripts(){
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'jm', get_template_directory_uri() . '/vendor/jquery-migrate.js', array('jquery'), '110', true );
 	wp_enqueue_script( 'bootjs', get_template_directory_uri() . '/js/bootstrap/js/bootstrap.min.js', array('jquery'), '110', true );
@@ -134,13 +136,13 @@ function spi_scripts(){
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'spi_scripts' );
+add_action( 'wp_enqueue_scripts', 'gimliii_scripts' );
 
 }
 
-if ( ! function_exists( 'spi_posted_on' ) ) :
+if ( ! function_exists( 'gimliii_posted_on' ) ) :
 
-function spi_posted_on() {
+function gimliii_posted_on() {
 if(!is_single()){
 	printf( '<a href="%1$s" rel="bookmark"><time datetime="%2$s">%3$s</time></a>', 
 		esc_url( get_permalink() ),
@@ -160,8 +162,8 @@ else {
 endif;
 
 
-if ( ! function_exists( 'spi_paging_nav' ) ) :
-function spi_paging_nav() {
+if ( ! function_exists( 'gimliii_paging_nav' ) ) :
+function gimliii_paging_nav() {
 
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
@@ -189,8 +191,8 @@ function spi_paging_nav() {
 		'current'  => $paged,
 		'mid_size' => 1,
 		'add_args' => array_map( 'urlencode', $query_args ),
-		'prev_text' => __( '&larr; Prev', 'spi' ),
-		'next_text' => __( 'Next &rarr;', 'spi' ),
+		'prev_text' => __( '&larr; Prev', 'gimliii' ),
+		'next_text' => __( 'Next &rarr;', 'gimliii' ),
 	) );
 
 	if ( $links ) :
@@ -207,8 +209,8 @@ function spi_paging_nav() {
 	endif;
 }
 endif;
-if ( ! function_exists( 'spi_post_nav' ) ) :
-function spi_post_nav() {
+if ( ! function_exists( 'gimliii_post_nav' ) ) :
+function gimliii_post_nav() {
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
 
@@ -220,10 +222,10 @@ function spi_post_nav() {
 	<nav class="post-navigation" role="navigation">
 			<?php
 			if ( is_attachment() ) :
-				previous_post_link( '%link', __( '<span>Published In</span>%title', 'spi' ) );
+				previous_post_link( '%link', __( '<span>Published In</span>%title', 'gimliii' ) );
 			else :
-				previous_post_link( '%link', __( '<span class="pull-left post-nav-link"><i class="icon-arrow-left"></i>&nbsp;&nbsp;Prev Post</span>', 'spi' ) );
-				next_post_link( '%link', __( '<span class="pull-right post-nav-link">Next Post&nbsp;&nbsp;<i class="icon-arrow-right"></i></span>', 'spi' ) );
+				previous_post_link( '%link', __( '<span class="pull-left post-nav-link"><i class="icon-arrow-left"></i>&nbsp;&nbsp;Prev Post</span>', 'gimliii' ) );
+				next_post_link( '%link', __( '<span class="pull-right post-nav-link">Next Post&nbsp;&nbsp;<i class="icon-arrow-right"></i></span>', 'gimliii' ) );
 			endif;
 			?>
 	</nav><!-- .post-navigation -->
@@ -233,7 +235,7 @@ endif;
 
 
 // How comments are displayed
-function spi_comment($comment, $args, $depth) {
+function gimliii_comment($comment, $args, $depth) {
 	$GLOBALS['comment'] = $comment; ?>
 	<?php $add_below = ''; ?>
 	<li <?php comment_class(); ?> id="comment-<?php comment_ID() ?>">
@@ -247,12 +249,12 @@ function spi_comment($comment, $args, $depth) {
 			
 				<div class="comment-author meta">
 					<strong><?php echo get_comment_author_link() ?></strong>
-					<div class="spi-date-reply"><?php printf(__('%1$s %2$s', 'spi'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__(' , Edit ', 'spi'),'  ','') ?><?php comment_reply_link(array_merge( $args, array('reply_text' => __('/ Reply', 'spi'), 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?></div>
+					<div class="gimliii-date-reply"><?php printf(__('%1$s %2$s', 'gimliii'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__(' , Edit ', 'gimliii'),'  ','') ?><?php comment_reply_link(array_merge( $args, array('reply_text' => __('/ Reply', 'gimliii'), 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?></div>
 				</div>
 			
 				<div class="comment-text">
 					<?php if ($comment->comment_approved == '0') : ?>
-					<em><?php echo __('Your comment is awaiting moderation.', 'spi') ?></em>
+					<em><?php echo __('Your comment is awaiting moderation.', 'gimliii') ?></em>
 					<br />
 					<?php endif; ?>
 					<?php comment_text() ?>
@@ -263,7 +265,7 @@ function spi_comment($comment, $args, $depth) {
 		</div>
 
 <?php }
-function spi_last_posts($numberOfPosts = 5 , $thumb = true){
+function gimliii_last_posts($numberOfPosts = 5 , $thumb = true){
 	global $post;
 	$orig_post = $post;
 	
@@ -274,10 +276,10 @@ function spi_last_posts($numberOfPosts = 5 , $thumb = true){
 	<dl class="dl-horizontal">
 	<dt>	
 	<?php if (has_post_thumbnail() && $thumb ) : ?>				
-		<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'spi' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+		<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 		<?php the_post_thumbnail('thumb-small'); ?></a>	    
 	<?php else: ?>
-	<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'spi' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+	<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 	<?php if($thumb){
 	echo '<img class="img-responsive" src="'.get_template_directory_uri().'/img/default-thumb-small.png">';}endif; ?>
 	</dt>
@@ -290,7 +292,7 @@ function spi_last_posts($numberOfPosts = 5 , $thumb = true){
 	$post = $orig_post;
 }
 
-function spi_popular_posts($pop_posts = 5 , $thumb = true){
+function gimliii_popular_posts($pop_posts = 5 , $thumb = true){
 	global $wpdb , $post;
 	$orig_post = $post;
 	
@@ -304,10 +306,10 @@ function spi_popular_posts($pop_posts = 5 , $thumb = true){
 			<dl class="dl-horizontal">
 	        <dt>
 			<?php if (has_post_thumbnail() && $thumb ) : ?>			
-					<a href="<?php echo get_permalink( $post->ID ); ?>" title="<?php printf( __( 'Permalink to %s', 'spi' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+					<a href="<?php echo get_permalink( $post->ID ); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 					<?php the_post_thumbnail('thumb-small'); ?></a>
 			<?php else: ?>
-			<a href="<?php echo get_permalink( $post->ID ); ?>" title="<?php printf( __( 'Permalink to %s', 'spi' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+			<a href="<?php echo get_permalink( $post->ID ); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 			<?php if($thumb){
 			echo '<img class="img-responsive" src="'.get_template_directory_uri().'/img/default-thumb-small.png">';}endif; ?>
 			</dt>
@@ -322,7 +324,7 @@ function spi_popular_posts($pop_posts = 5 , $thumb = true){
 	$post = $orig_post;
 }
 
-function spi_random_posts($numberOfPosts = 5 , $thumb = true){
+function gimliii_random_posts($numberOfPosts = 5 , $thumb = true){
 	global $post;
 	$orig_post = $post;
 
@@ -333,10 +335,10 @@ function spi_random_posts($numberOfPosts = 5 , $thumb = true){
 <dl class="dl-horizontal">
 	<dt>	
 	<?php if (has_post_thumbnail() && $thumb ) : ?>			
-			<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'spi' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+			<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 				<?php the_post_thumbnail('thumb-small'); ?></a>
 	<?php else: ?>
-	<a href="<?php echo the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'spi' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+	<a href="<?php echo the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 	<?php 
 	if($thumb){
 	echo '<img class="img-responsive" src="'.get_template_directory_uri().'/img/default-thumb-small.png">';}endif; ?>
