@@ -1,0 +1,154 @@
+/*
+Theme Name: Gimliii
+Description: Used to style the TinyMCE editor.
+*/
+h1, h2, h3, h4, h5 {
+	margin-top: 5px;
+	text-shadow: none;
+	font-weight: normal !important;
+	font-family: 'Open Sans', sans-serif;
+}
+h1{
+	font-size: 36px;
+}
+h2 {
+	color: #555;
+	font-size: 24px;
+	line-height: 32px;
+}
+h3 {
+	font-size: 24px;
+}
+h4{
+	font-size: 18px;
+}
+h5 {
+	font-size: 14px;
+}
+h6 {
+	font-size: 12px;
+	font-weight: normal;
+
+}
+a {
+	color: #72c02c;
+	text-decoration: none;
+}
+a:hover {
+	color: #72c02c;
+	text-decoration: underline;
+}
+code, kbd, pre, samp {
+	font-family: monospace, serif;
+	font-size: 1em;
+}
+blockquote {
+	padding: 10px 20px;
+	margin: 0 0 20px;
+	border-left: 5px solid #eeeeee;
+}
+blockquote:hover {
+	border-left-color: #72c02c;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+blockquote cite {
+	font-variant: small-caps;
+	font-size: 0.95em;
+}
+cite {
+	border-bottom: none;
+	font-style: normal;
+}
+.mceItemTable, .mceItemTable td, .mceItemTable th, .mceItemTable caption, .mceItemVisualAid {
+	border: 1px solid #f3f3f3;
+}
+table {
+	border-collapse: collapse;
+	max-width: 100%;
+	background-color: transparent;
+}
+tr, thead {
+	border-bottom: 1px solid #f3f3f3;
+}
+th, td {
+	text-align: left;
+	padding: 10px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+td {
+	background: #fcfcfc;
+}
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin-left: 0;
+}
+dt, dd {
+	line-height: 1.428571429;
+}
+address {
+	display: block;
+	margin-bottom: 20px;
+	font-style: normal;
+	line-height: 1.428571429;
+}
+abbr[title], abbr[data-original-title] {
+	cursor: help;
+	border-bottom: 1px dotted #999999;
+}
+acronym {
+	text-transform: uppercase;
+	border-bottom: 1px dotted #068606;
+}
+code {
+	padding: 2px 4px;
+	font-size: 90%;
+	color: #c7254e;
+	background-color: #f9f2f4;
+	white-space: nowrap;
+	border-radius: 4px;
+}
+del {
+	color: #555;
+}
+pre {
+	display: block;
+	padding: 9.5px;
+	margin: 0 0 10px;
+	font-size: 13px;
+	line-height: 1.428571429;
+	word-break: break-all;
+	word-wrap: break-word;
+	color: #333333;
+	background-color: #f5f5f5;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+}
+.wp-caption{
+	border:none;
+}
+.wp-caption-dd {
+	color: #000;
+	background: #A3CE86;
+	padding: 2px 10px;
+	margin-top: 5px;
+	border-radius: 5px;
+}
+.alignleft {
+	float: left;
+	margin-right: 1.5rem;
+}
+.alignright { 
+	float: right;
+	margin-left: 1.5rem; 
+}
+.attachment-medium, .alignnone, .wp-caption img {
+	max-width: 100%;
+	height: auto;
+}

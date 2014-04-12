@@ -14,3 +14,14 @@
 2)Nav-Menu check when there is no menu assigned
 <==========V 1.0.5===========>
 1)Added POT file for easy translations
+<==========V 1.0.6===========>
+1)Added POT file for easy translations
+2)some syle changes
+<==========V 1.0.7===========>
+1)Adding editor-style.css
+2)some style changes
+<==========V 1.0.8===========>
+1) Adding Full Width Page Template
+2) Left Sidebar Page Template
+3) Both Sidebars Page template
+4) Added editor-style tag to style.css

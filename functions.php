@@ -6,6 +6,8 @@ if ( ! isset( $content_width ) ) {
 function gimliii_setup() {
 
 	load_theme_textdomain( 'gimliii', get_template_directory() . '/languages' );
+	
+	add_editor_style();
 
 	add_theme_support( 'automatic-feed-links' );
 
@@ -57,7 +59,14 @@ function gimliii_widgets_init() {
 		'before_title' => '<div class="lb lb-md"><h2>',
 		'after_title' => '</h2></div>',
 	));
-
+		register_sidebar(array(
+		'name' => ' Left Sidebar',
+		'id' => 'gimliii-left-sidebar',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<div class="lb lb-md"><h2>',
+		'after_title' => '</h2></div>',
+	));
 	register_sidebar(array(
 		'name' => 'Footer One',
 		'id' => 'gimliii-footer-one',

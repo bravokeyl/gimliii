@@ -2,10 +2,10 @@
  * Theme Name:  gimliii
  * Theme URI:   https://wordpress.org/themes/gimliii
  * Description: Very simple and clean green theme , supports custom header , custom background , comes with two widgets and three footer widget areas , sidebar widgets. 
- * Version:     1.0.6.1
+ * Version:     1.0.8
  * Author:      Bravo Keyl
  * Author URI:  http://cloudspier.com
- * Tags: 		green, one-column, two-columns, three-columns,custom-menu,featured-images , right-sidebar , responsive-layout , custom-background , custom-header , sticky-post ,translation-ready
+ * Tags: 		green, one-column, two-columns, three-columns,custom-menu,featured-images , right-sidebar , responsive-layout , custom-background , custom-header , sticky-post ,translation-ready ,editor-style
  * License:     GNU General Public License v3
  * License URI: http://www.gnu.org/licenses/gpl.html
  * Text Domain: gimliii
@@ -561,7 +561,10 @@ border-color: #f3f3f3;
 th, td {
 text-align: left;
 }
-
+.blog-page {
+background: #fff;
+padding: 10px 5px;
+}
 /* Widgets */
 .widget ul{
    padding-left: 5px;
@@ -1146,7 +1149,7 @@ clear: both;
 /*Blog Page*/
 .blog h2 {
 	color: #555;
-	font-size: 21px;
+	font-size: 24px;
 	line-height: 32px;
 }
 

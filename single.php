@@ -36,7 +36,7 @@
                 <div class="blog-img">
 
                 	<?php if ( has_post_thumbnail() && ! post_password_required() ){
-								the_post_thumbnail();
+								the_post_thumbnail('full');
 					}?> 
                 </div>
                 <div class="blog-body">
