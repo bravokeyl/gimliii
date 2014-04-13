@@ -25,3 +25,6 @@
 2) Left Sidebar Page Template
 3) Both Sidebars Page template
 4) Added editor-style tag to style.css
+<==========V 1.0.8.1===========>
+1) Menu items to left
+2) Added left-sidebar ,full-width-template tags

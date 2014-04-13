@@ -40,7 +40,7 @@
                <?php wp_nav_menu(array(
                         'theme_location' => 'primary',
                         'container'      => false, 
-                        'menu_class'     => 'nav navbar-nav navbar-right menu'
+                        'menu_class'     => 'nav navbar-nav menu'
                ));?>              
             </div><!-- /navbar-collapse -->
         </div>    
