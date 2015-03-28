@@ -47,7 +47,7 @@
 						<?php if(has_tag()){ ?><li><i class="icon-tags"></i> <?php the_tags();?></li><?php } ?>	
                     </ul>
                     <p><?php the_excerpt(); ?></p>
-                    <p><a class="btn-u btn-u-small" href="<?php the_permalink(); ?>"><i class=" icon-eye-open"></i> Read More</a></p>
+                    <p><a class="btn-u btn-u-small" href="<?php the_permalink(); ?>"><i class=" icon-eye-open"></i><?php _e('Read More','gimliii');?></a></p>
                 </div>    
             </div>
             <!--End Blog Post-->        

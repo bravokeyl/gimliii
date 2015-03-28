@@ -1,21 +1,24 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: gimliii v1.0.5\n"
-"POT-Creation-Date: 2014-03-19 20:39+0530\n"
-"PO-Revision-Date: 2014-03-19 20:40+0530\n"
-"Last-Translator: bravokeyl <bravokeyl@gmail.com>\n"
+"Project-Id-Version: Gimliii\n"
+"POT-Creation-Date: 2015-03-28 22:41+0530\n"
+"PO-Revision-Date: 2015-03-28 22:41+0530\n"
+"Last-Translator: \n"
 "Language-Team: bravokeyl <bravokeyl@gmail.com>\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Generator: Poedit 1.7.5\n"
 "X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: archive.php:4
 #, php-format
-msgid "Post under category : %s"
+msgid "Posts under category : %s"
 msgstr ""
 
 #: archive.php:4
@@ -59,53 +62,53 @@ msgstr ""
 msgid " | All Rights Reserved."
 msgstr ""
 
-#: functions.php:36
+#: functions.php:38
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:194
+#: functions.php:203
 msgid "&larr; Prev"
 msgstr ""
 
-#: functions.php:195
+#: functions.php:204
 msgid "Next &rarr;"
 msgstr ""
 
-#: functions.php:225
+#: functions.php:234
 msgid "<span>Published In</span>%title"
 msgstr ""
 
-#: functions.php:227
+#: functions.php:236
 msgid ""
 "<span class=\"pull-left post-nav-link\"><i class=\"icon-arrow-left\"></"
 "i>&nbsp;&nbsp;Prev Post</span>"
 msgstr ""
 
-#: functions.php:228
+#: functions.php:237
 msgid ""
 "<span class=\"pull-right post-nav-link\">Next Post&nbsp;&nbsp;<i class="
 "\"icon-arrow-right\"></i></span>"
 msgstr ""
 
-#: functions.php:252
+#: functions.php:261
 #, php-format
 msgid "%1$s %2$s"
 msgstr ""
 
-#: functions.php:252
+#: functions.php:261
 msgid " , Edit "
 msgstr ""
 
-#: functions.php:252
+#: functions.php:261
 msgid "/ Reply"
 msgstr ""
 
-#: functions.php:257
+#: functions.php:266
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: functions.php:279 functions.php:282 functions.php:309 functions.php:312
-#: functions.php:338 functions.php:341
+#: functions.php:288 functions.php:291 functions.php:318 functions.php:321
+#: functions.php:347 functions.php:350
 #, php-format
 msgid "Permalink to %s"
 msgstr ""
@@ -118,7 +121,20 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: page.php:21 single.php:44
+#: home.php:50
+msgid "Read More"
+msgstr ""
+
+#: inc/widgets.php:51
+msgid "Recent Posts"
+msgstr ""
+
+#: inc/widgets.php:91
+msgid "Search"
+msgstr ""
+
+#: page templates/both-sidebars.php:28 templates/full-width.php:26
+#: templates/left-sidebar.php:31 page.php:21 single.php:44
 msgid "Pages:"
 msgstr ""
 
@@ -135,12 +151,4 @@ msgstr ""
 msgid ""
 "Sorry, but nothing matched your search criteria. Please try again with some "
 "different keywords."
-msgstr ""
-
-#: inc/widgets.php:51
-msgid "Recent Posts"
-msgstr ""
-
-#: inc/widgets.php:91
-msgid "Search"
 msgstr ""
