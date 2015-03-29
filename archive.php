@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div class="breadcrumbs margin-bottom-40">
     <div class="container">
-        <h1 class="pull-left"><?php if(is_category()){ printf( __( 'Posts under category : %s', 'gimliii' ), single_cat_title( '', false ) ); }elseif(is_tag()){ printf( __( 'Posts tagged in : %s', 'gimliii' ), single_tag_title( '', false ) ); } else{ echo 'Archives: ';}?></h1>
+        <h1 class="pull-left"><?php if(is_category()){ printf( __( 'Posts under category : %s', 'gimliii' ), single_cat_title( '', false ) ); }elseif(is_tag()){ printf( __( 'Posts tagged in : %s', 'gimliii' ), single_tag_title( '', false ) ); } else{ _e('Archives: ','gimliii');}?></h1>
     </div>
 </div>
 
@@ -44,7 +44,7 @@
 						<?php if(has_tag()){ ?><li><i class="icon-tags"></i> <?php the_tags();?></li><?php } ?>	
                     </ul>
                     <p><?php the_excerpt(); ?></p>
-                    <p><a class="btn-u btn-u-small" href="<?php the_permalink(); ?>"><i class="icon-location-arrow"></i> Read More</a></p>
+                    <p><a class="btn-u btn-u-small" href="<?php the_permalink(); ?>"><i class="icon-location-arrow"></i><?php _e('Read More','gimliii');?></a></p>
                 </div>    
             </div>     
 

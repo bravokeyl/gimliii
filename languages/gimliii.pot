@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Gimliii\n"
-"POT-Creation-Date: 2015-03-28 22:41+0530\n"
-"PO-Revision-Date: 2015-03-28 22:41+0530\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2015-03-29 12:08+0530\n"
+"PO-Revision-Date: 2015-03-29 12:09+0530\n"
 "Last-Translator: \n"
 "Language-Team: bravokeyl <bravokeyl@gmail.com>\n"
 "Language: en_US\n"
@@ -26,6 +26,10 @@ msgstr ""
 msgid "Posts tagged in : %s"
 msgstr ""
 
+#: archive.php:4
+msgid "Archives: "
+msgstr ""
+
 #: archive.php:32 home.php:35 search.php:43 single.php:19
 msgid "Comment"
 msgstr ""
@@ -36,6 +40,10 @@ msgstr ""
 
 #: archive.php:32 home.php:35 search.php:43 single.php:19
 msgid "% Comments"
+msgstr ""
+
+#: archive.php:47 home.php:50
+msgid "Read More"
 msgstr ""
 
 #: comments.php:20 comments.php:35
@@ -56,6 +64,14 @@ msgstr ""
 
 #: comments.php:66
 msgid "Email"
+msgstr ""
+
+#: comments.php:79
+msgid "Leave a Reply"
+msgstr ""
+
+#: comments.php:80
+msgid " Send Comment"
 msgstr ""
 
 #: footer.php:29
@@ -119,10 +135,6 @@ msgstr ""
 
 #: home.php:4
 msgid "Home"
-msgstr ""
-
-#: home.php:50
-msgid "Read More"
 msgstr ""
 
 #: inc/widgets.php:51

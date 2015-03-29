@@ -76,8 +76,8 @@ if ( post_password_required() ) {
                             'fields'       => $gimliii_com_fields,
                             'comment_notes_after' => '',
                              'comment_field' => $gimliii_comment_filed,
-                            'title_reply'  => ' Leave a Reply',
-                            'label_submit' => ' Send Comment')); ?>
+                            'title_reply'  =>  __('Leave a Reply','gimliii'),
+                            'label_submit' => __(' Send Comment','gimliii'))); ?>
 
                    
                     
