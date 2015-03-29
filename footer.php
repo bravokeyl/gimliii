@@ -26,7 +26,7 @@
 			<div class="col-md-6">						
 	            <p class="copyright-space">
                 <?php bloginfo('name');
-                	  _e(' | All Rights Reserved.');
+                	  _e(" | All Rights Reserved.","gimliii");
                 ?>
                 </p>
 			</div>
