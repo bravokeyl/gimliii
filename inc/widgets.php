@@ -68,7 +68,7 @@ class gimliii_posts_list extends WP_Widget {
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'thumb' ); ?>">Use Thumbinals : </label>
+			<label for="<?php echo $this->get_field_id( 'thumb' ); ?>">Use Thumbnails : </label>
 			<input id="<?php echo $this->get_field_id( 'thumb' ); ?>" name="<?php echo $this->get_field_name( 'thumb' ); ?>" value="true" <?php if( $instance['thumb'] ) echo 'checked="checked"'; ?> type="checkbox" />
 		</p>
 
