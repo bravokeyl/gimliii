@@ -7,5 +7,5 @@
             </div>            
         </div>
     </div>
-</div><!--/row-->
+</div>
 <?php get_footer(); ?>

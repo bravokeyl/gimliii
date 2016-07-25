@@ -1,18 +1,16 @@
 <?php get_header(); ?>
-<!--=== Breadcrumbs ===-->
 <div class="breadcrumbs margin-bottom-40">
     <div class="container">
-    	   <h3> <?php	
-			if ( have_posts() ) :
-				printf( __( 'Search Results for: %s', 'gimliii' ), '<span>' . get_search_query() . '</span>' ); ?>
-				<?php else : ?>
-				<?php _e( 'Nothing Found', 'gimliii' ); ?>
-				<?php endif; ?>	</h3>
+	   <h3> <?php	
+		if ( have_posts() ) :
+			printf( __( 'Search Results for: %s', 'gimliii' ), '<span>' . get_search_query() . '</span>' ); ?>
+			<?php else : ?>
+			<?php _e( 'Nothing Found', 'gimliii' ); ?>
+			<?php endif; ?>	
+        </h3>
     </div>
-</div><!--/breadcrumbs-->
-<!--=== End Breadcrumbs ===-->
+</div>
 
-<!--=== Content Part ===-->
 <div class="container">		
 	<div class="row blog-page">    
         <!-- Left Sidebar -->
@@ -37,12 +35,12 @@
                 <div class="col-md-7">
                     <h2><?php the_title(); ?></h2>
                     <ul class="list-unstyled list-inline blog-info">
-                        <li><i class="icon-calendar"></i> <?php gimliii_posted_on();?></li>
+                        <li><i class="fa fa-calendar" aria-hidden="true"></i> <?php gimliii_posted_on();?></li>
                         <?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
-                        <li><i class="icon-comments"></i> 
+                        <li><i class="fa fa-comments" aria-hidden="true"></i> 
                         <?php comments_popup_link( __( 'Comment', 'gimliii' ), __( '1 comment', 'gimliii' ), __( '% Comments', 'gimliii' ) ); ?>
                     	</li><?php endif;?>
-                    	<li><i class="icon-copy"></i> 
+                    	<li><i class="fa fa-copy" aria-hidden="true"></i> 
                     		<?php
 			                 $catcountpost= sizeof(get_the_category());
 			                   if( $catcountpost>15){
@@ -52,10 +50,10 @@
 			                   }
 							   ?>
                     	</li>
-						<?php if(has_tag()){ ?><li><i class="icon-tags"></i> <?php the_tags();?></li><?php } ?>	
+						<?php if(has_tag()){ ?><li><i class="fa fa-tags" aria-hidden="true"></i> <?php the_tags();?></li><?php } ?>	
                     </ul>
                     <p><?php the_excerpt(); ?></p>
-                    <p><a class="btn-u btn-u-small" href="<?php the_permalink(); ?>"><i class="icon-location-arrow"></i><?php _e("Read More","gimliii");?></a></p>
+                    <p><a class="btn-u btn-u-small" href="<?php the_permalink(); ?>"><i class="fa fa-location-arrow" aria-hidden="true"></i><?php _e("Read More","gimliii");?></a></p>
                 </div>    
             </div>
             <!--End Blog Post-->        
@@ -74,7 +72,6 @@
     	<?php get_sidebar();?>
         <!-- End Right Sidebar -->
     </div><!--/row-->        
-</div><!--/container-->		
-<!--=== End Content Part ===-->
+</div>
 
 <?php get_footer(); ?>

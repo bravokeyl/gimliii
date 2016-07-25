@@ -12,7 +12,7 @@ get_header(); ?>
 <div class="container">		
 	<div class="row blog-page blog-item">
 	    <!-- Left Sidebar -->
-        <div class="col-md-3 magazine-page">
+        <div class="col-md-3">
 		    <div class="posts margin-bottom-40">
 		        <?php dynamic_sidebar( 'gimliii-left-sidebar' ); ?>
 		    </div>
@@ -29,20 +29,16 @@ get_header(); ?>
                </div>
                  </div>       
 			<?php endif;?>
-             <!-- Recent Comments -->
              <?php
-                // If comments are open or we have at least one comment, load up the comment template.
                 if ( comments_open() || get_comments_number() ) {
                   comments_template();
                 }?>
-            <!-- End Recent Comments -->
         </div>
 
         <!-- Right Sidebar -->
         <?php get_sidebar();?>
         <!-- End Right Sidebar -->
     </div><!--/row-->        
-</div><!--/container-->		
-<!--=== End Content Part ===-->
+</div><!--/container-->
 
 <?php get_footer();?>

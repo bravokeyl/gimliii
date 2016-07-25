@@ -22,13 +22,10 @@
                </div>
                  </div>       
 			<?php endif;?>
-             <!-- Recent Comments -->
              <?php
-                // If comments are open or we have at least one comment, load up the comment template.
                 if ( comments_open() || get_comments_number() ) {
                   comments_template();
                 }?>
-            <!-- End Recent Comments -->
         </div>
 
         <!-- Right Sidebar -->
@@ -36,6 +33,5 @@
         <!-- End Right Sidebar -->
     </div><!--/row-->        
 </div><!--/container-->		
-<!--=== End Content Part ===-->
 
 <?php get_footer();?>
