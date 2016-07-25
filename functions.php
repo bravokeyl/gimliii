@@ -118,7 +118,7 @@ add_action( 'widgets_init', 'gimliii_widgets_init' );
 function gimliii_styles(){
 
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri().'/js/bootstrap/css/bootstrap.min.css', array() );
-	wp_enqueue_style( 'gimliii', get_stylesheet_uri(), array( 'bootstrap' ) );	
+	wp_enqueue_style( 'gimliii', get_template_directory_uri().'/css/gimliii.css', array( 'bootstrap' ) );	
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri().'/vendor/font-awesome/css/font-awesome.css', array() );  
 }
 
