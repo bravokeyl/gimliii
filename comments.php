@@ -42,9 +42,6 @@ if ( post_password_required() ) {
     <?php endif; ?>
 
     <?php endif; // have_comments() ?>
-
-   
-
 </div><!-- #comments -->
  <?php
         $aria_req= 'aria-required="true"';
@@ -72,13 +69,12 @@ if ( post_password_required() ) {
             </div>                
          </div></p>'
 );
-     comment_form( array(
-                            'fields'       => $gimliii_com_fields,
-                            'comment_notes_after' => '',
-                             'comment_field' => $gimliii_comment_filed,
-                            'title_reply'  =>  __('Leave a Reply','gimliii'),
-                            'label_submit' => __(' Send Comment','gimliii'))); ?>
-
-                   
-                    
-                    <!-- <p><button class="btn-u" type="submit">Send Message</button></p> -->
+    comment_form( array(
+            'fields'       => $gimliii_com_fields,
+            'comment_notes_after' => '',
+             'comment_field' => $gimliii_comment_filed,
+            'title_reply'  =>  __('Leave a Reply','gimliii'),
+            'label_submit' => __(' Send Comment','gimliii')
+        )
+    ); 
+?>
