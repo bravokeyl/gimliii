@@ -6,16 +6,33 @@ if ( ! isset( $content_width ) ) {
 function gimliii_setup() {
 
 	load_theme_textdomain( 'gimliii', get_template_directory() . '/languages' );
-	
-	add_editor_style();
 
 	add_theme_support( 'automatic-feed-links' );
 
+	/*
+	 * Enable support for title tag.
+	 *
+	 * @since 2.0
+	 */
+	add_theme_support( 'title-tag' );
+
 	add_theme_support( 'post-thumbnails' );
-	// Thumbnail sizes
-		add_image_size( 'thumb-small', 60, 60, true );
-		add_image_size( 'thumb-medium', 336, 212, true );
-   // Add theme support for Custom Header
+
+	add_image_size( 'thumb-small', 60, 60, true );
+
+	add_image_size( 'thumb-medium', 336, 212, true );
+
+	/*
+	 * Enable support for custom logo.
+	 *
+	 * @since 2.0
+	 */
+	add_theme_support( 'custom-logo', array(
+		'height'      => 240,
+		'width'       => 240,
+		'flex-height' => true,
+	) );
+
 	$gimliii_header_args = array(
 			'default-image'          => '',
 			'random-default'         => false,
@@ -26,8 +43,8 @@ function gimliii_setup() {
 			'default-text-color'     => '333',
 			'header-text'            => true,
 			'uploads'                => true,
-
 	);
+
 	add_theme_support( 'custom-header', $gimliii_header_args );
 
 	add_theme_support( "custom-background");
@@ -41,17 +58,16 @@ function gimliii_setup() {
 	add_theme_support( 'html5', array(
 		'search-form', 'comment-form'
 	) );
-
 }
 
 add_action( 'after_setup_theme', 'gimliii_setup' );
-get_template_part('inc/widgets');
-//require_once(get_template_directory() .'/admin/theme-settings.php');
 
-/* Widgetize Theme */
+require get_template_directory() . '/inc/widgets.php';
+
+
 function gimliii_widgets_init() {
 
-		register_sidebar(array(
+	register_sidebar(array(
 		'name' => ' Right Sidebar',
 		'id' => 'gimliii-right-sidebar',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
@@ -59,7 +75,8 @@ function gimliii_widgets_init() {
 		'before_title' => '<div class="lb lb-md"><h2>',
 		'after_title' => '</h2></div>',
 	));
-		register_sidebar(array(
+	
+	register_sidebar(array(
 		'name' => ' Left Sidebar',
 		'id' => 'gimliii-left-sidebar',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
@@ -67,6 +84,7 @@ function gimliii_widgets_init() {
 		'before_title' => '<div class="lb lb-md"><h2>',
 		'after_title' => '</h2></div>',
 	));
+	
 	register_sidebar(array(
 		'name' => 'Footer One',
 		'id' => 'gimliii-footer-one',
@@ -93,80 +111,50 @@ function gimliii_widgets_init() {
 		'before_title' => '<div class="lb"><h2>',
 		'after_title' => '</h2></div>',
 	));
-
 }
+
 add_action( 'widgets_init', 'gimliii_widgets_init' );
-
-function gimliii_filter_wp_title( $title, $separator ) { 
-	if ( is_feed() )
-		return $title;
-	global $paged, $page;
-
-	if ( is_search() ) {
-
-		$title = sprintf( 'Search results for %s', '"' . get_search_query() . '"' );
-		if ( $paged >= 2 )
-			$title .= " $separator " . sprintf( 'Page %s', $paged );
-		$title .= " $separator " . get_bloginfo( 'name', 'display' );
-		return $title;
-	}
-
-	$title .= get_bloginfo( 'name', 'display' );
-
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) )
-		$title .= " $separator " . $site_description;
-
-	if ( $paged >= 2 || $page >= 2 )
-		$title .= " $separator " . sprintf( 'Page %s', max( $paged, $page ) );
-
-	return $title;
-}
-add_filter( 'wp_title', 'gimliii_filter_wp_title', 10, 2 );
-
-if(!is_admin()){
 
 function gimliii_styles(){
 
-	wp_enqueue_style( 'bootcss', get_template_directory_uri().'/js/bootstrap/css/bootstrap.min.css', array() );
-	wp_enqueue_style( 'gimliii-style', get_stylesheet_uri(), array( 'bootcss' ) );	
-	wp_enqueue_style( 'fontawesome', get_template_directory_uri().'/vendor/font-awesome/css/font-awesome.css', array() );  
-
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri().'/js/bootstrap/css/bootstrap.min.css', array() );
+	wp_enqueue_style( 'gimliii', get_stylesheet_uri(), array( 'bootstrap' ) );	
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri().'/vendor/font-awesome/css/font-awesome.css', array() );  
 }
+
 add_action( 'wp_enqueue_scripts', 'gimliii_styles' );
 
 function gimliii_scripts(){
+
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'jm', get_template_directory_uri() . '/vendor/jquery-migrate.js', array('jquery'), '110', true );
-	wp_enqueue_script( 'bootjs', get_template_directory_uri() . '/js/bootstrap/js/bootstrap.min.js', array('jquery'), '110', true );
-	wp_enqueue_script( 'cu', get_template_directory_uri() . '/vendor/superfish.js', array('jquery'), '110', true );
-	wp_enqueue_script( 'gimlijs', get_template_directory_uri() . '/js/gimli.js', array('jquery'), '110', true );
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap/js/bootstrap.min.js', array('jquery'), '110', true );
+	wp_enqueue_script( 'superfish', get_template_directory_uri() . '/vendor/superfish.js', array('jquery'), '110', true );
+	wp_enqueue_script( 'gimliii', get_template_directory_uri() . '/js/gimliii.js', array('jquery'), '110', true );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
+
 add_action( 'wp_enqueue_scripts', 'gimliii_scripts' );
 
-}
 
 if ( ! function_exists( 'gimliii_posted_on' ) ) :
 
 function gimliii_posted_on() {
-if(!is_single()){
-	printf( '<a href="%1$s" rel="bookmark"><time datetime="%2$s">%3$s</time></a>', 
-		esc_url( get_permalink() ),
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() )
-	);
-}
-else {
-	printf( '<time datetime="%2$s">%3$s</time>', 
-		esc_url( get_permalink() ),
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() )
-	);
-}
-
+	if(!is_single()){
+		printf( '<a href="%1$s" rel="bookmark"><time datetime="%2$s">%3$s</time></a>', 
+			esc_url( get_permalink() ),
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() )
+		);
+	}
+	else {
+		printf( '<time datetime="%2$s">%3$s</time>', 
+			esc_url( get_permalink() ),
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() )
+		);
+	}
 }
 endif;
 
