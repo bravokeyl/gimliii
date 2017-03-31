@@ -22,14 +22,14 @@ if( is_active_sidebar('gimliii-footer-one') || is_active_sidebar('gimliii-footer
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-        <p class="copyright-space">
+        <p class="copyright-space credit">
           <?php
 						printf( '<a class="site-link" href="%s" rel="home">%s</a>', esc_url( home_url() ), get_bloginfo( 'name' ) );
         	  _e( ' | All Rights Reserved.', 'gimliii' );
           ?>
         </p>
 			</div>
-			<div class="col-md-6 text-right">
+			<div class="col-md-6 text-right credit-alt">
 				<a href="<?php echo esc_url( __( 'https://mu-bit.com/', 'gimliii' ) ); ?>" title="With love by Mu Bit"> &#10084;</a>
 			</div>
 		</div><!--/row-->
