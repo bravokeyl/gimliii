@@ -6,13 +6,11 @@ if( is_active_sidebar('gimliii-footer-one') || is_active_sidebar('gimliii-footer
 				<div class="col-md-4 md-margin-bottom-40">
 					<?php dynamic_sidebar('gimliii-footer-one');?>
 				</div><!--/col-md-4-->
-
 				<div class="col-md-4 md-margin-bottom-40">
 	                <div class="posts">
 	                    <?php dynamic_sidebar('gimliii-footer-two');?>
 	                </div>
 				</div><!--/col-md-4-->
-
 				<div class="col-md-4">
 	                <?php dynamic_sidebar('gimliii-footer-three');?>
 				</div><!--/col-md-4-->
@@ -38,7 +36,5 @@ if( is_active_sidebar('gimliii-footer-one') || is_active_sidebar('gimliii-footer
 	</div><!--/container-->
 </div><!--/copyright-->
 <?php wp_footer(); ?>
-
 </body>
-
 </html>
