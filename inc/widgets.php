@@ -5,13 +5,13 @@ function gimliii_posts_list_widget() {
 }
 class gimliii_posts_list extends WP_Widget {
 
-	function gimliii_posts_list() {
+	public function __construct() {
 		$widget_ops = array( 'classname' => 'posts-list'  );
 		$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'posts-list-widget' );
-		$this->WP_Widget( 'posts-list-widget','Gimli Posts list', $widget_ops, $control_ops );
+		parent::__construct('posts-list-widget', __('Gimli Posts list'), $widget_ops, $control_ops);
 	}
-	
-	function widget( $args, $instance ) {
+
+	public function widget( $args, $instance ) {
 		extract( $args );
 
 		$title = apply_filters('widget_title', $instance['title'] );
@@ -27,14 +27,14 @@ class gimliii_posts_list extends WP_Widget {
 					<?php
 					if( $posts_order == 'popular' )
 						gimliii_popular_posts($no_of_posts , $thumb);
-						
+
 					elseif( $posts_order == 'random' )
 						gimliii_random_posts($no_of_posts , $thumb);
-						
+
 					else
-						gimliii_last_posts($no_of_posts , $thumb)?>	
+						gimliii_last_posts($no_of_posts , $thumb)?>
 				</ul>
-	<?php 
+	<?php
 		echo $after_widget;
 	}
 
@@ -82,18 +82,18 @@ function gimliii_search_widget() {
 	register_widget( 'gimliii_search' );
 }
 class gimliii_search extends WP_Widget {
-	function gimliii_search() {
+	public function __construct() {
 		$widget_ops = array( 'classname' => 'search'  );
 		$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'search-widget' );
-		$this->WP_Widget( 'search-widget',' Gimli Search', $widget_ops, $control_ops );
+		parent::__construct('search-widget', __('Gimli Search'), $widget_ops, $control_ops);
 	}
-	function widget( $args, $instance ) { ?>
-	<div class="lb lb-md"><h2><?php _e('Search','gimliii');?></h2></div> 
+	public function widget( $args, $instance ) { ?>
+	<div class="lb lb-md"><h2><?php _e('Search','gimliii');?></h2></div>
 	<div class="input-group margin-bottom-40">
 		<form method="get" id="searchform" action="<?php echo home_url() ; ?>/">
 			<input type="text" id="s" name="s" class="form-control" placeholder="Search"  />
 		</form>
-	</div><!-- .search-widget /-->		
+	</div><!-- .search-widget /-->
 <?php
 	}
 }
