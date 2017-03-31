@@ -128,19 +128,18 @@ add_action( 'widgets_init', 'gimliii_widgets_init' );
 
 function gimliii_styles(){
 	wp_enqueue_style( 'gimliii-fonts', '//fonts.googleapis.com/css?family=Raleway:500,700|Merriweather:400,500', array() );
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri().'/js/bootstrap/css/bootstrap.min.css', array() );
-	wp_enqueue_style( 'gimliii', get_template_directory_uri().'/css/gimliii.css', array( 'bootstrap' ) );
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri().'/vendor/font-awesome/css/font-awesome.css', array() );
+	wp_enqueue_style( 'bootstrap', get_theme_file_uri( '/js/bootstrap/css/bootstrap.min.css' ), array() );
+	wp_enqueue_style( 'gimliii-parent', get_parent_theme_file_uri( '/css/gimliii.min.css' ), array( 'bootstrap' ) );
+	wp_enqueue_style( 'font-awesome', get_theme_file_uri( '/vendor/font-awesome/css/font-awesome.css' ), array() );
 }
 
 add_action( 'wp_enqueue_scripts', 'gimliii_styles' );
 
 function gimliii_scripts(){
-
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap/js/bootstrap.min.js', array('jquery'), '110', true );
-	wp_enqueue_script( 'superfish', get_template_directory_uri() . '/vendor/superfish.js', array('jquery'), '110', true );
-	wp_enqueue_script( 'gimliii', get_template_directory_uri() . '/js/gimliii.js', array('jquery'), '110', true );
+	wp_enqueue_script( 'bootstrap', get_theme_file_uri( '/js/bootstrap/js/bootstrap.min.js' ), array('jquery'), '110', true );
+	wp_enqueue_script( 'superfish', get_theme_file_uri( '/vendor/superfish.js' ), array('jquery'), '110', true );
+	wp_enqueue_script( 'gimliii', get_theme_file_uri( '/js/gimliii.js' ), array('jquery'), '110', true );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -148,99 +147,95 @@ function gimliii_scripts(){
 
 add_action( 'wp_enqueue_scripts', 'gimliii_scripts' );
 
-
 if ( ! function_exists( 'gimliii_posted_on' ) ) :
-
-function gimliii_posted_on() {
-	if(!is_single()){
-		printf( '<a href="%1$s" rel="bookmark"><time datetime="%2$s">%3$s</time></a>',
-			esc_url( get_permalink() ),
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() )
-		);
+	function gimliii_posted_on() {
+		if(!is_single()){
+			printf( '<a href="%1$s" rel="bookmark"><time datetime="%2$s">%3$s</time></a>',
+				esc_url( get_permalink() ),
+				esc_attr( get_the_date( 'c' ) ),
+				esc_html( get_the_date() )
+			);
+		}
+		else {
+			printf( '<time datetime="%2$s">%3$s</time>',
+				esc_url( get_permalink() ),
+				esc_attr( get_the_date( 'c' ) ),
+				esc_html( get_the_date() )
+			);
+		}
 	}
-	else {
-		printf( '<time datetime="%2$s">%3$s</time>',
-			esc_url( get_permalink() ),
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() )
-		);
-	}
-}
 endif;
-
 
 if ( ! function_exists( 'gimliii_paging_nav' ) ) :
-function gimliii_paging_nav() {
+	function gimliii_paging_nav() {
+		if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
+			return;
+		}
+		$paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
+		$pagenum_link = html_entity_decode( get_pagenum_link() );
+		$query_args   = array();
+		$url_parts    = explode( '?', $pagenum_link );
 
-	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
-		return;
+		if ( isset( $url_parts[1] ) ) {
+			wp_parse_str( $url_parts[1], $query_args );
+		}
+
+		$pagenum_link = remove_query_arg( array_keys( $query_args ), $pagenum_link );
+		$pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
+
+		$format  = $GLOBALS['wp_rewrite']->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
+		$format .= $GLOBALS['wp_rewrite']->using_permalinks() ? user_trailingslashit( 'page/%#%', 'paged' ) : '?paged=%#%';
+
+		// Set up paginated links.
+		$links = paginate_links( array(
+			'base'     => $pagenum_link,
+			'format'   => $format,
+			'total'    => $GLOBALS['wp_query']->max_num_pages,
+			'current'  => $paged,
+			'mid_size' => 1,
+			'add_args' => array_map( 'urlencode', $query_args ),
+			'prev_text' => __( '&larr; Prev', 'gimliii' ),
+			'next_text' => __( 'Next &rarr;', 'gimliii' ),
+		) );
+
+		if ( $links ) :
+
+		?>
+		 <!--Pagination-->
+	    <div class="text-center">
+	        <ul class="postpagenum">
+	         <?php echo $links; ?>
+	        </ul>
+	    </div>
+	            <!--End Pagination-->
+		<?php
+		endif;
 	}
-	$paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
-	$pagenum_link = html_entity_decode( get_pagenum_link() );
-	$query_args   = array();
-	$url_parts    = explode( '?', $pagenum_link );
-
-	if ( isset( $url_parts[1] ) ) {
-		wp_parse_str( $url_parts[1], $query_args );
-	}
-
-	$pagenum_link = remove_query_arg( array_keys( $query_args ), $pagenum_link );
-	$pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
-
-	$format  = $GLOBALS['wp_rewrite']->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
-	$format .= $GLOBALS['wp_rewrite']->using_permalinks() ? user_trailingslashit( 'page/%#%', 'paged' ) : '?paged=%#%';
-
-	// Set up paginated links.
-	$links = paginate_links( array(
-		'base'     => $pagenum_link,
-		'format'   => $format,
-		'total'    => $GLOBALS['wp_query']->max_num_pages,
-		'current'  => $paged,
-		'mid_size' => 1,
-		'add_args' => array_map( 'urlencode', $query_args ),
-		'prev_text' => __( '&larr; Prev', 'gimliii' ),
-		'next_text' => __( 'Next &rarr;', 'gimliii' ),
-	) );
-
-	if ( $links ) :
-
-	?>
-	 <!--Pagination-->
-    <div class="text-center">
-        <ul class="postpagenum">
-         <?php echo $links; ?>
-        </ul>
-    </div>
-            <!--End Pagination-->
-	<?php
-	endif;
-}
 endif;
+
 if ( ! function_exists( 'gimliii_post_nav' ) ) :
-function gimliii_post_nav() {
-	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
-	$next     = get_adjacent_post( false, '', false );
+	function gimliii_post_nav() {
+		$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
+		$next     = get_adjacent_post( false, '', false );
 
-	if ( ! $next && ! $previous ) {
-		return;
+		if ( ! $next && ! $previous ) {
+			return;
+		}
+
+		?>
+		<nav class="post-navigation" role="navigation">
+				<?php
+				if ( is_attachment() ) :
+					previous_post_link( '%link', __( '<span>Published In</span>%title', 'gimliii' ) );
+				else :
+					previous_post_link( '%link', __( '<span class="pull-left post-nav-link"><i class="icon-arrow-left"></i>&nbsp;&nbsp;Prev Post</span>', 'gimliii' ) );
+					next_post_link( '%link', __( '<span class="pull-right post-nav-link">Next Post&nbsp;&nbsp;<i class="icon-arrow-right"></i></span>', 'gimliii' ) );
+				endif;
+				?>
+		</nav><!-- .post-navigation -->
+		<?php
 	}
-
-	?>
-	<nav class="post-navigation" role="navigation">
-			<?php
-			if ( is_attachment() ) :
-				previous_post_link( '%link', __( '<span>Published In</span>%title', 'gimliii' ) );
-			else :
-				previous_post_link( '%link', __( '<span class="pull-left post-nav-link"><i class="icon-arrow-left"></i>&nbsp;&nbsp;Prev Post</span>', 'gimliii' ) );
-				next_post_link( '%link', __( '<span class="pull-right post-nav-link">Next Post&nbsp;&nbsp;<i class="icon-arrow-right"></i></span>', 'gimliii' ) );
-			endif;
-			?>
-	</nav><!-- .post-navigation -->
-	<?php
-}
 endif;
-
 
 // How comments are displayed
 function gimliii_comment($comment, $args, $depth) {

@@ -28,6 +28,6 @@
 <==========V 1.0.8.1===========>
 1) Menu items to left
 2) Added left-sidebar ,full-width-template tags
-<==========V 2.0.0===========>
+<==========V 2.1.0===========>
 1) Adding theme support for title-tag,custom-logo
-2) 
+2)
