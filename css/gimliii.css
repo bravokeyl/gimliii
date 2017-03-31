@@ -1232,7 +1232,7 @@ clear: both;
     max-width: 100%;
     height: auto;
 }
-h2.site-title{
+.site-title{
    color: #72c02c;
    font-size: 30px;
 }

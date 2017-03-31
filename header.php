@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>> 
+<html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-    <?php endif; ?>     
+    <?php endif; ?>
     <?php wp_head(); ?>
-</head>	
+</head>
 <body <?php body_class(); ?>>
 <div class="header">
     <div class="container">
         <div class="col-md-12">
             <?php if ( display_header_text() ) :?>
-            <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><h2 class="site-title"><?php bloginfo('name') ;?></h2></a>
-            <h4><?php bloginfo('description'); ?></h4>
+            <a href="<?php echo esc_url( home_url() ); ?>" rel="home">
+              <?php if( is_front_page() ){ ?>
+                <h1 class="site-title"><?php bloginfo( 'name' ) ;?></h1>
+              <?php } else { ?>
+                <h2 class="site-title"><?php bloginfo( 'name' ) ;?></h2>
+              <?php } ?>
+            </a>
+            <h4><?php bloginfo( 'description' ); ?></h4>
 
             <?php endif;
             if(get_header_image()): ?>
@@ -23,28 +29,30 @@
         <?php endif;?>
         </div>
     </div>
-    <?php if(has_nav_menu('primary')) : ?>
+    <?php if( has_nav_menu( 'primary' ) ) : ?>
     <div class="navbar navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                    <span class="sr-only"><?php _e('Toggle navigation','gimliii');?></span>
+                    <span class="sr-only"><?php _e( 'Toggle navigation', 'gimliii' );?></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                <a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>">
 
                 </a>
             </div>
             <div id="navigation" class="collapse navbar-collapse navbar-responsive-collapse">
-               <?php wp_nav_menu(array(
-                        'theme_location' => 'primary',
-                        'container'      => false, 
-                        'menu_class'     => 'nav navbar-nav menu'
-               ));?>              
+               <?php
+                 wp_nav_menu(array(
+                    'theme_location' => 'primary',
+                    'container'      => false,
+                    'menu_class'     => 'nav navbar-nav menu'
+                 ));
+               ?>
             </div><!-- /navbar-collapse -->
-        </div>    
-    </div>  
-    <?php endif; ?>  
+        </div>
+    </div>
+    <?php endif; ?>
 </div><!--/header-->
