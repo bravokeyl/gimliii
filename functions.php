@@ -353,4 +353,11 @@ function gimliii_random_posts($numberOfPosts = 5 , $thumb = true){
 </li>
 <?php endforeach;
 	$post = $orig_post;
-}?>
+}
+
+function gimliii_pingback_header() {
+	if ( is_singular() && pings_open() ) {
+		printf( '<link rel="pingback" href="%s">' . "\n", get_bloginfo( 'pingback_url' ) );
+	}
+}
+add_action( 'wp_head', 'gimliii_pingback_header' );
