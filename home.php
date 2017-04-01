@@ -11,11 +11,10 @@
                 <div class="col-md-5">
                     <?php if ( has_post_thumbnail() && ! post_password_required() ){ ?>
                     <a href="<?php the_permalink(); ?>">
-                            <?php   the_post_thumbnail('thumb-medium');
+                            <?php   the_post_thumbnail('gimliii-thumb-medium');
                             echo "</a>";
                     }else{
                         ?>
-
  												<img src="http://placehold.it/336x212" alt="<?php the_title(); ?>" class="img-responsive"/>
                         <?php
                     }?>
@@ -32,18 +31,19 @@
                     	<li><i class="fa fa-copy" aria-hidden="true"></i>
                     		<?php
 			                 $catcountpost= sizeof(get_the_category());
-			                   if( $catcountpost>15){
-			                   		echo 'Posted in '. $catcountpost.' Categories';?>
-			                   <?php }else{
+			                   if( 15 < $catcountpost ){
+			                   		printf( '%1s %2s %3s',__( 'Posted in', 'gimliii' ), $catcountpost, __( 'Categories', 'gimliii' ) );
+ 												 } else{
 			                   	the_category(',');
 			                   }
-							   ?>
+							   		 ?>
                     	</li>
 						<?php if(has_tag()){ ?><li><i class="fa fa-tags" aria-hidden="true"></i> <?php the_tags();?></li><?php } ?>
                     </ul>
                     <p><?php the_excerpt(); ?></p>
                     <p>
-											<a class="btn-u btn-u-medium" href="<?php the_permalink(); ?>"><i class="fa fa-eye" aria-hidden="true"></i>
+											<a class="btn-u btn-u-medium" href="<?php the_permalink(); ?>">
+											<i class="fa fa-eye" aria-hidden="true"></i>
 											<span class="read-more-text"><?php _e( 'Read More', 'gimliii' );?></span>
 											</a>
 										</p>

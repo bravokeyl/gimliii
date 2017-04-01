@@ -280,7 +280,7 @@ function gimliii_last_posts($numberOfPosts = 5 , $thumb = true){
 	<dt>
 	<?php if (has_post_thumbnail() && $thumb ) : ?>
 		<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-		<?php the_post_thumbnail('thumb-small'); ?></a>
+		<?php the_post_thumbnail('gimliii-thumb-small'); ?></a>
 	<?php else: ?>
 	<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 	<?php if($thumb){
@@ -301,6 +301,7 @@ function gimliii_popular_posts($pop_posts = 5 , $thumb = true){
 
 	$popularposts = "SELECT ID,post_title,post_date,post_author,post_content,post_type FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post' ORDER BY comment_count DESC LIMIT 0,".$pop_posts;
 	$posts = $wpdb->get_results($popularposts);
+
 	if($posts){
 		global $post;
 		foreach($posts as $post){
@@ -310,7 +311,7 @@ function gimliii_popular_posts($pop_posts = 5 , $thumb = true){
 	        <dt>
 			<?php if (has_post_thumbnail() && $thumb ) : ?>
 					<a href="<?php echo get_permalink( $post->ID ); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-					<?php the_post_thumbnail('thumb-small'); ?></a>
+					<?php the_post_thumbnail('gimliii-thumb-small'); ?></a>
 			<?php else: ?>
 			<a href="<?php echo get_permalink( $post->ID ); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 			<?php if($thumb){
@@ -339,7 +340,7 @@ function gimliii_random_posts($numberOfPosts = 5 , $thumb = true){
 	<dt>
 	<?php if (has_post_thumbnail() && $thumb ) : ?>
 			<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-				<?php the_post_thumbnail('thumb-small'); ?></a>
+				<?php the_post_thumbnail('gimliii-thumb-small'); ?></a>
 	<?php else: ?>
 	<a href="<?php echo the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 	<?php

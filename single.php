@@ -22,9 +22,9 @@
 	                    <li><i class="fa fa-tags" aria-hidden="true"></i>
 	                    	<?php
 			                 $catcountpost= sizeof(get_the_category());
-			                   if( $catcountpost>15){
-			                   		echo 'Posted in '. $catcountpost.' Categories';
-			                   }else{
+			                   if( 15 < $catcountpost ){
+			                   		printf( '%1s %2s %3s', __( 'Posted in', 'gimliii' ), $catcountpost, __( 'Categories', 'gimliii' ) );
+			                   } else{
 			                   	the_category(',');
 			                   }
 							   ?>

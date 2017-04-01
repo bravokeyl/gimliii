@@ -914,7 +914,9 @@ ul.blog-tags a:hover, ul.blog-tags a:hover i {
     border-bottom: solid 1px #eee;
     position: relative;
 }
-
+.header-title {
+    padding: 20px 0px;
+}
 .custom-header-image {
     max-width: 100%;
     height: auto;

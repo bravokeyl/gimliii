@@ -2,11 +2,26 @@
 Theme Name: Gimliii
 Description: Used to style the TinyMCE editor.
 */
+body {
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+p, a, li {
+    font-weight: 400;
+    color: #333;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
 h1, h2, h3, h4, h5 {
 	margin-top: 5px;
 	text-shadow: none;
 	font-weight: normal !important;
-	font-family: 'Raleway', sans-serif; 
+	font-family: 'Raleway', sans-serif;
 }
 h1{
 	font-size: 36px;
@@ -144,9 +159,9 @@ pre {
 	float: left;
 	margin-right: 1.5rem;
 }
-.alignright { 
+.alignright {
 	float: right;
-	margin-left: 1.5rem; 
+	margin-left: 1.5rem;
 }
 .attachment-medium, .alignnone, .wp-caption img {
 	max-width: 100%;

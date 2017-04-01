@@ -3,7 +3,6 @@ if ( post_password_required() ) {
     return;
 }
 ?>
-<hr>
 <div id="comments" class="comments-area">
 
     <?php if ( have_comments() ) : ?>
@@ -49,24 +48,24 @@ if ( post_password_required() ) {
     '</label><div class="row margin-bottom-20">
         <div class="col-md-7 col-md-offset-0">
             <textarea   id="comment" class="form-control" name="comment"  rows="8" aria-required="true"></textarea>
-        </div>                
+        </div>
     </div></p>';
          $gimliii_com_fields =  array(
-    'author' => '<p class="comment-form-author">' . '<label for="author">' . __( 'Name','gimliii' ) . '</label> ' . 
+    'author' => '<p class="comment-form-author">' . '<label for="author">' . __( 'Name','gimliii' ) . '</label> ' .
     ( $req ? '<span class="required">*</span>' : '' ) .
     '<div class="row margin-bottom-20">
        <div class="col-md-7 col-md-offset-0">
-           <input  type="text"  class="form-control" id="author" name="author" value="' . esc_attr( $commenter['comment_author'] ) . 
+           <input  type="text"  class="form-control" id="author" name="author" value="' . esc_attr( $commenter['comment_author'] ) .
         '" size="30"' . $aria_req . ' >
-        </div>                
+        </div>
       </div></p>',
-    'email'  => '<p class="comment-form-email"><label for="email">' . __( 'Email' ,'gimliii' ) . '</label> ' . 
+    'email'  => '<p class="comment-form-email"><label for="email">' . __( 'Email' ,'gimliii' ) . '</label> ' .
     ( $req ? '<span class="required">*</span>' : '' ) .
         '<div class="row margin-bottom-20">
             <div class="col-md-7 col-md-offset-0">
-                <input  type="text"  class="form-control" id="email" name="email" value="' . esc_attr(  $commenter['comment_author_email'] ) . 
+                <input  type="text"  class="form-control" id="email" name="email" value="' . esc_attr(  $commenter['comment_author_email'] ) .
         '" size="30"' . $aria_req . ' >
-            </div>                
+            </div>
          </div></p>'
 );
     comment_form( array(
@@ -76,5 +75,5 @@ if ( post_password_required() ) {
             'title_reply'  =>  __('Leave a Reply','gimliii'),
             'label_submit' => __(' Send Comment','gimliii')
         )
-    ); 
+    );
 ?>

@@ -8,7 +8,7 @@
 </head>
 <body <?php body_class(); ?>>
 <header class="header">
-  <div class="container hidden-xs">
+  <div class="container header-title hidden-xs">
       <div class="header-inner">
           <?php if ( display_header_text() ) :?>
           <a href="<?php echo esc_url( home_url() ); ?>" rel="home">
