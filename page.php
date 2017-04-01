@@ -6,7 +6,7 @@
 
  <?php }?>
 <?php if( !is_front_page() ) { ?>
-<div class="breadcrumbs margin-bottom-40">
+<div class="page-title">
   <div class="container">
       <h1 class="pull-left"><?php the_title();?></h1>
   </div>

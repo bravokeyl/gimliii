@@ -16,7 +16,7 @@
                     }else{
                         ?>
 
- <img src="<?php echo get_template_directory_uri(); ?>/img/default-thumb.jpg" alt="<?php the_title(); ?>" class="img-responsive"/>
+ 												<img src="http://placehold.it/336x212" alt="<?php the_title(); ?>" class="img-responsive"/>
                         <?php
                     }?>
 
@@ -42,7 +42,11 @@
 						<?php if(has_tag()){ ?><li><i class="fa fa-tags" aria-hidden="true"></i> <?php the_tags();?></li><?php } ?>
                     </ul>
                     <p><?php the_excerpt(); ?></p>
-                    <p><a class="btn-u btn-u-small" href="<?php the_permalink(); ?>"><i class="fa fa-eye" aria-hidden="true"></i><?php _e('Read More','gimliii');?></a></p>
+                    <p>
+											<a class="btn-u btn-u-medium" href="<?php the_permalink(); ?>"><i class="fa fa-eye" aria-hidden="true"></i>
+											<span class="read-more-text"><?php _e( 'Read More', 'gimliii' );?></span>
+											</a>
+										</p>
                 </div>
             </div>
             <!--End Blog Post-->
