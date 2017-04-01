@@ -1646,7 +1646,20 @@ blockquote:hover {
 #navigation ul li:first-child a {
   padding-left: 0px;
 }
-
+.site-logo {
+  float: left;
+  max-width: 100%;
+  padding-right: 30px;
+}
+.mobile-site-logo {
+  padding-left: 15px;
+  padding-right: 0px;
+}
+.custom-header {
+  padding-top: 20px;
+  clear: both;
+  overflow: hidden;
+}
 /*Responsive --Media Queries */
 
 

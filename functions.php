@@ -34,9 +34,9 @@ function gimliii_setup() {
 	 * @since 2.1.0
 	 */
 	add_theme_support( 'custom-logo', array(
-		'height'      => 240,
+		'height'      => 62,
 		'width'       => 240,
-		'flex-height' => true,
+		'flex-width' => true,
 	) );
 
 	$gimliii_header_args = array(
