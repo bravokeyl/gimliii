@@ -1,1 +1,1 @@
-# Gimli - The Dwarf Warrior
+# Gimli(ii) - The Dwarf Warrior
