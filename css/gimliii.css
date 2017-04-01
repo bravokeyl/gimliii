@@ -17,6 +17,7 @@ p, a, li {
     font-weight: 400;
     color: #333;
     line-height: 1.5;
+    word-wrap: break-word;
 }
 
 a, a:focus, a:hover, a:active {
@@ -50,7 +51,10 @@ img.img-circle {
 b, strong {
     font-weight: 500;
 }
-
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 /*Tables
 ------------------------------------*/

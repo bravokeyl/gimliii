@@ -284,7 +284,7 @@ function gimliii_last_posts($numberOfPosts = 5 , $thumb = true){
 	<?php else: ?>
 	<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 	<?php if($thumb){
-	echo '<img class="img-responsive" src="'.get_template_directory_uri().'/img/default-thumb-small.png">';}endif; ?>
+	echo '<img class="img-responsive" src="http://placehold.it/60x60">';}endif; ?>
 	</dt>
 	<dd>
 	<p><a href="<?php the_permalink(); ?>"><?php the_title();?></a></p>
@@ -314,7 +314,7 @@ function gimliii_popular_posts($pop_posts = 5 , $thumb = true){
 			<?php else: ?>
 			<a href="<?php echo get_permalink( $post->ID ); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 			<?php if($thumb){
-			echo '<img class="img-responsive" src="'.get_template_directory_uri().'/img/default-thumb-small.png">';}endif; ?>
+			echo '<img class="img-responsive" src="http://placehold.it/60x60">';}endif; ?>
 			</dt>
 	        <dd>
 				<a href="<?php echo get_permalink( $post->ID ) ?>" title="<?php echo the_title(); ?>"><?php echo the_title(); ?></a>
@@ -344,7 +344,7 @@ function gimliii_random_posts($numberOfPosts = 5 , $thumb = true){
 	<a href="<?php echo the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 	<?php
 	if($thumb){
-	echo '<img class="img-responsive" src="'.get_template_directory_uri().'/img/default-thumb-small.png">';}endif; ?>
+	echo '<img class="img-responsive" src="http://placehold.it/60x60">';}endif; ?>
 	</dt>
     <dd>
 	<a href="<?php echo the_permalink() ?>" title="<?php echo the_title(); ?>"><?php echo the_title(); ?></a>
