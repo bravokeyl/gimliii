@@ -346,7 +346,7 @@ function gimliii_random_posts($numberOfPosts = 5 , $thumb = true){
 	global $post;
 	$orig_post = $post;
 
-	$lastPosts = get_posts('orderby=rand&numberposts='.$numberOfPosts);
+	$lastPosts = get_posts('orderby=rand&numberposts='.intval($numberOfPosts));
 	foreach($lastPosts as $post): setup_postdata($post);
 ?>
 <li>
