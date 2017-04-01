@@ -299,27 +299,41 @@ function gimliii_popular_posts($pop_posts = 5 , $thumb = true){
 	global $wpdb , $post;
 	$orig_post = $post;
 
-	$popularposts = "SELECT ID,post_title,post_date,post_author,post_content,post_type FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post' ORDER BY comment_count DESC LIMIT 0,".$pop_posts;
+	$popularposts = $wpdb->prepare(
+		"SELECT ID,post_title,post_date,post_author,post_content,post_type
+		FROM $wpdb->posts
+		WHERE post_status = 'publish'
+		AND post_type = 'post'
+		ORDER BY comment_count
+		DESC LIMIT 0,%d",
+		intval($pop_posts)
+	);
 	$posts = $wpdb->get_results($popularposts);
 
 	if($posts){
 		global $post;
-		foreach($posts as $post){
+		foreach($posts as $post) {
 		setup_postdata($post);?>
 			<li>
 			<dl class="dl-horizontal">
 	        <dt>
-			<?php if (has_post_thumbnail() && $thumb ) : ?>
-					<a href="<?php echo get_permalink( $post->ID ); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-					<?php the_post_thumbnail('gimliii-thumb-small'); ?></a>
-			<?php else: ?>
-			<a href="<?php echo get_permalink( $post->ID ); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-			<?php if($thumb){
-			echo '<img class="img-responsive" src="http://placehold.it/60x60">';}endif; ?>
-			</dt>
-	        <dd>
-				<a href="<?php echo get_permalink( $post->ID ) ?>" title="<?php echo the_title(); ?>"><?php echo the_title(); ?></a>
-			</dd>
+						<?php if (has_post_thumbnail() && $thumb ) : ?>
+							<a href="<?php echo get_permalink( $post->ID ); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+								<?php the_post_thumbnail('gimliii-thumb-small'); ?>
+							</a>
+						<?php else: ?>
+							<a href="<?php echo get_permalink( $post->ID ); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+								<?php if($thumb){
+									echo '<img class="img-responsive" src="http://placehold.it/60x60">';
+								}?>
+							</a>
+						<?php endif; ?>
+					</dt>
+      		<dd>
+						<a href="<?php echo get_permalink( $post->ID ) ?>" title="<?php echo the_title(); ?>">
+							<?php echo the_title(); ?>
+						</a>
+					</dd>
     		</dl>
 			</li>
 	<?php
