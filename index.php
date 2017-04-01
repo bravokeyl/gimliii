@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-               <h1>Oh! snap!!</h1>
-            </div>            
+               <h1><?php _e( 'Oh! snap!!', 'gimliii' ); ?></h1>
+            </div>
         </div>
     </div>
 </div>
