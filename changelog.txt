@@ -31,3 +31,8 @@
 <==========V 2.1.0===========>
 Maintenance Release
 https://github.com/bravokeyl/gimliii/
+<=========V2.1.2=======>
+Maintenance Release - Fixing Translation
+Removing placehold.it images
+Using WP_Query instead of direct db queries
+https://github.com/bravokeyl/gimliii/

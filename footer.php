@@ -30,7 +30,9 @@ if( is_active_sidebar('gimliii-footer-one') || is_active_sidebar('gimliii-footer
         </p>
 			</div>
 			<div class="col-md-6 text-right credit-alt">
-				<a href="<?php echo esc_url( __( 'https://mu-bit.com/', 'gimliii' ) ); ?>" title="With love by Mu Bit"> &#10084;</a>
+				<a href="<?php echo esc_url( __( 'https://mu-bit.com/', 'gimliii' ) ); ?>"
+					title="<?php echo esc_attr(__( 'With love by Mu Bit', 'gimliii' ));?>">&#10084;
+				</a>
 			</div>
 		</div><!--/row-->
 	</div><!--/container-->
