@@ -335,7 +335,7 @@ function gimliii_popular_posts($pop_posts = 5 , $thumb = true){
 	<?php
 		}
 	}
-	$post = $orig_post;
+	wp_reset_postdata();
 }
 
 function gimliii_random_posts($numberOfPosts = 5 , $thumb = true){
