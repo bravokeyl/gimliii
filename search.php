@@ -27,7 +27,7 @@
                                 the_post_thumbnail('gimliii-thumb-medium');
                     }else{
                         ?>
-                        <img src="http://placehold.it/336x212" alt="<?php the_title(); ?>" class="img-responsive"/>
+                        <img src="<?php echo get_theme_file_uri('img/default-thumb.jpg');?>" alt="<?php the_title(); ?>" class="img-responsive"/>
                         <?php
                     }?>
 

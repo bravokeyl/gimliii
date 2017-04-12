@@ -11,11 +11,11 @@
                 <div class="col-md-5">
                     <?php if ( has_post_thumbnail() && ! post_password_required() ){ ?>
                     <a href="<?php the_permalink(); ?>">
-                            <?php   the_post_thumbnail('gimliii-thumb-medium');
+                            <?php the_post_thumbnail('gimliii-thumb-medium');
                             echo "</a>";
                     }else{
                         ?>
- 												<img src="http://placehold.it/336x212" alt="<?php the_title(); ?>" class="img-responsive"/>
+ 												<img src="<?php echo get_theme_file_uri('img/default-thumb.jpg');?>?>" alt="<?php the_title(); ?>" class="img-responsive"/>
                         <?php
                     }?>
 

@@ -284,7 +284,7 @@ function gimliii_last_posts($numberOfPosts = 5 , $thumb = true){
 	<?php else: ?>
 	<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 	<?php if($thumb){
-	echo '<img class="img-responsive" src="http://placehold.it/60x60">';}endif; ?>
+	echo '<img class="img-responsive" src="'.get_theme_file_uri('img/default-thumb-small.png').'">';}endif; ?>
 	</dt>
 	<dd>
 	<p><a href="<?php the_permalink(); ?>"><?php the_title();?></a></p>
@@ -299,23 +299,19 @@ function gimliii_popular_posts($pop_posts = 5 , $thumb = true){
 	global $wpdb , $post;
 	$orig_post = $post;
 
-	$popularposts = $wpdb->prepare(
-		"SELECT ID,post_title,post_date,post_author,post_content,post_type
-		FROM $wpdb->posts
-		WHERE post_status = 'publish'
-		AND post_type = 'post'
-		ORDER BY comment_count
-		DESC LIMIT 0,%d",
-		intval($pop_posts)
+	$pacargs = array(
+		'post_status'    => 'publish',
+		'post_type'      => 'post',
+		'orderby'        => 'comment_count',
+		'posts_per_page' => intval($pop_posts)
 	);
-	$posts = $wpdb->get_results($popularposts);
 
-	if($posts){
-		global $post;
-		foreach($posts as $post) {
-		setup_postdata($post);?>
+	$ppopular = new WP_Query($pacargs);
+
+	if ( $ppopular->have_posts() ) {
+		while ( $ppopular->have_posts() ) { $ppopular->the_post(); ?>
 			<li>
-			<dl class="dl-horizontal">
+				<dl class="dl-horizontal">
 	        <dt>
 						<?php if (has_post_thumbnail() && $thumb ) : ?>
 							<a href="<?php echo get_permalink( $post->ID ); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
@@ -324,7 +320,7 @@ function gimliii_popular_posts($pop_posts = 5 , $thumb = true){
 						<?php else: ?>
 							<a href="<?php echo get_permalink( $post->ID ); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 								<?php if($thumb){
-									echo '<img class="img-responsive" src="http://placehold.it/60x60">';
+									echo '<img class="img-responsive" src="'.get_theme_file_uri('img/default-thumb-small.png').'">';
 								}?>
 							</a>
 						<?php endif; ?>
@@ -359,7 +355,7 @@ function gimliii_random_posts($numberOfPosts = 5 , $thumb = true){
 	<a href="<?php echo the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 	<?php
 	if($thumb){
-	echo '<img class="img-responsive" src="http://placehold.it/60x60">';}endif; ?>
+	echo '<img class="img-responsive" src="'.get_theme_file_uri('img/default-thumb-small.png').'">';}endif; ?>
 	</dt>
     <dd>
 	<a href="<?php echo the_permalink() ?>" title="<?php echo the_title(); ?>"><?php echo the_title(); ?></a>
