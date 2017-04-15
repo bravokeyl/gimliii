@@ -43,15 +43,15 @@
                     <?php endif;?>
 										<li><i class="fa fa-copy" aria-hidden="true"></i>
 										<?php
-                      $catcountpost = count( get_the_category() );
-                      if ( 15 < $catcountpost ) {
-                      	printf( '%1s %2s %3s', __( 'Posted in', 'gimliii' ), $catcountpost, __( 'Categories', 'gimliii' ) );
-                      } else {
-                      	the_category( ',' );
-                      }
+                    $catcountpost = count( get_the_category() );
+                    if ( 15 < $catcountpost ) {
+                    	printf( '%1s %2s %3s', __( 'Posted in', 'gimliii' ), $catcountpost, __( 'Categories', 'gimliii' ) );
+                    } else {
+                      the_category( ',' );
+                    }
 										?>
 										</li>
-										<?php if( has_tag() ) { ?>
+										<?php if ( has_tag() ) { ?>
                       <li><i class="fa fa-tags" aria-hidden="true"></i> <?php the_tags();?></li>
                     <?php } ?>
 									</ul>
