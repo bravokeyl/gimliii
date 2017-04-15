@@ -51,7 +51,7 @@
                       }
 										?>
 										</li>
-										<?php if(has_tag()){ ?>
+										<?php if( has_tag() ){ ?>
                     <li><i class="fa fa-tags" aria-hidden="true"></i> <?php the_tags();?></li>
                     <?php } ?>
 									</ul>
