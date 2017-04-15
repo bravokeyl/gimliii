@@ -8,10 +8,25 @@ if ( post_password_required() ) {
     <?php if ( have_comments() ) : ?>
 
     <h3 class="comments-title">
-        <?php
-            printf( _n( 'One Comment', '%1$s Comments', get_comments_number(), 'gimliii' ),
-                number_format_i18n( get_comments_number() ), get_the_title() );
-        ?>
+      <?php
+				$comments_number = get_comments_number();
+				if ( 1 === $comments_number ) {
+					_e( 'One comment', 'gimliii' );
+				} else {
+					printf(
+						/* translators: 1: number of comments, 2: post title */
+						_nx(
+							'%1$s comment',
+							'%1$s comments',
+							$comments_number,
+							'comments title',
+							'gimliii'
+						),
+						number_format_i18n( $comments_number ),
+						get_the_title()
+					);
+				}
+			?>
     </h3>
 
     <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
