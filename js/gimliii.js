@@ -9,4 +9,4 @@ jQuery(function($) {
         autoArrows: false,
         dropShadows: false
     });
-})
+});
