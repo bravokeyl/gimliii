@@ -237,9 +237,7 @@ if ( ! function_exists( 'gimliii_post_nav' ) ) :
 	}
 endif;
 
-// How comments are displayed
-function gimliii_comment($comment, $args, $depth) {
-	$GLOBALS['comment'] = $comment; ?>
+function gimliii_comment($comment, $args, $depth) { ?>
 	<?php $add_below = ''; ?>
 	<li <?php comment_class(); ?> id="comment-<?php comment_ID() ?>">
 
@@ -270,34 +268,37 @@ function gimliii_comment($comment, $args, $depth) {
 <?php }
 function gimliii_last_posts($numberOfPosts = 5 , $thumb = true){
 	global $post;
-	$orig_post = $post;
 
-	$lastPosts = get_posts('numberposts='.$numberOfPosts);
+	$lastPosts = get_posts(
+		array(
+			'posts_per_page' => intval($numberOfPosts)
+		)
+	);
+
 	foreach($lastPosts as $post): setup_postdata($post);
-?>
-<li>
-	<dl class="dl-horizontal">
-	<dt>
-	<?php if (has_post_thumbnail() && $thumb ) : ?>
-		<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-		<?php the_post_thumbnail('gimliii-thumb-small'); ?></a>
-	<?php else: ?>
-	<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-	<?php if($thumb){
-	echo '<img class="img-responsive" src="'.get_theme_file_uri('img/default-thumb-small.png').'">';}endif; ?>
-	</dt>
-	<dd>
-	<p><a href="<?php the_permalink(); ?>"><?php the_title();?></a></p>
-	</dd>
+	?>
+	<li>
+		<dl class="dl-horizontal">
+			<dt>
+				<?php if (has_post_thumbnail() && $thumb ) : ?>
+					<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+					<?php the_post_thumbnail('gimliii-thumb-small'); ?></a>
+				<?php else: ?>
+				<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'gimliii' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+				<?php if($thumb){
+				echo '<img class="img-responsive" src="'.get_theme_file_uri('img/default-thumb-small.png').'">';}endif; ?>
+			</dt>
+			<dd>
+				<p><a href="<?php the_permalink(); ?>"><?php the_title();?></a></p>
+			</dd>
     </dl>
-</li>
+	</li>
 <?php endforeach;
-	$post = $orig_post;
+	wp_reset_postdata();
 }
 
 function gimliii_popular_posts($pop_posts = 5 , $thumb = true){
-	global $wpdb , $post;
-	$orig_post = $post;
+	global $post;
 
 	$pacargs = array(
 		'post_status'    => 'publish',
@@ -340,9 +341,12 @@ function gimliii_popular_posts($pop_posts = 5 , $thumb = true){
 
 function gimliii_random_posts($numberOfPosts = 5 , $thumb = true){
 	global $post;
-	$orig_post = $post;
 
-	$lastPosts = get_posts('orderby=rand&numberposts='.intval($numberOfPosts));
+	$lastPosts = get_posts( array(
+		'posts_per_page' => intval($numberOfPosts),
+    'orderby'   => 'rand',
+	) );
+	
 	foreach($lastPosts as $post): setup_postdata($post);
 ?>
 <li>
@@ -363,7 +367,7 @@ function gimliii_random_posts($numberOfPosts = 5 , $thumb = true){
 	</dl>
 </li>
 <?php endforeach;
-	$post = $orig_post;
+	wp_reset_postdata();
 }
 
 function gimliii_pingback_header() {
